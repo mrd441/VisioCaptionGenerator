@@ -6,6 +6,7 @@
 # Build results
 *.exe
 .vs/
+input/
 result/
 [Dd]ebug/
 [Rr]elease/
