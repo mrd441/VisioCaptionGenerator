@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.logBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.fileListElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makeDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tpTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileListElementBindingSource)).BeginInit();
@@ -50,7 +50,7 @@
             this.logBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.logBox.Location = new System.Drawing.Point(0, 354);
             this.logBox.Name = "logBox";
-            this.logBox.Size = new System.Drawing.Size(805, 96);
+            this.logBox.Size = new System.Drawing.Size(865, 96);
             this.logBox.TabIndex = 0;
             this.logBox.Text = "";
             // 
@@ -60,86 +60,89 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(195, 354);
+            this.groupBox1.Size = new System.Drawing.Size(100, 354);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Пуск";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fileNameDataGridViewTextBoxColumn,
-            this.makeDataGridViewTextBoxColumn,
-            this.makeDateDataGridViewTextBoxColumn,
-            this.checkDataGridViewTextBoxColumn,
-            this.checkDateDataGridViewTextBoxColumn,
-            this.tpTypeDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
             this.dataGridView1.DataSource = this.fileListElementBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView1.Location = new System.Drawing.Point(195, 0);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(100, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(354, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(765, 354);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(7, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValueNeeded);
             // 
             // fileListElementBindingSource
             // 
             this.fileListElementBindingSource.DataSource = typeof(VisioCaptionGenerator.Form1.fileListElement);
             // 
-            // fileNameDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "fileName";
-            this.fileNameDataGridViewTextBoxColumn.HeaderText = "fileName";
-            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "fileName";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Файл";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 220;
             // 
-            // makeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.makeDataGridViewTextBoxColumn.DataPropertyName = "make";
-            this.makeDataGridViewTextBoxColumn.HeaderText = "make";
-            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Составил";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // makeDateDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.makeDateDataGridViewTextBoxColumn.DataPropertyName = "makeDate";
-            this.makeDateDataGridViewTextBoxColumn.HeaderText = "makeDate";
-            this.makeDateDataGridViewTextBoxColumn.Name = "makeDateDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Дата";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // checkDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.checkDataGridViewTextBoxColumn.DataPropertyName = "check";
-            this.checkDataGridViewTextBoxColumn.HeaderText = "check";
-            this.checkDataGridViewTextBoxColumn.Name = "checkDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Проверил";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // checkDateDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn5
             // 
-            this.checkDateDataGridViewTextBoxColumn.DataPropertyName = "checkDate";
-            this.checkDateDataGridViewTextBoxColumn.HeaderText = "checkDate";
-            this.checkDateDataGridViewTextBoxColumn.Name = "checkDateDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Дата";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // tpTypeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn6
             // 
-            this.tpTypeDataGridViewTextBoxColumn.DataPropertyName = "tpType";
-            this.tpTypeDataGridViewTextBoxColumn.HeaderText = "tpType";
-            this.tpTypeDataGridViewTextBoxColumn.Name = "tpTypeDataGridViewTextBoxColumn";
-            this.tpTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tpTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Подстанция";
+            this.dataGridViewTextBoxColumn6.Items.AddRange(new object[] {
+            "Столбовая",
+            "Комплектная",
+            "Мачтовая",
+            "Закрытая"});
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 450);
+            this.ClientSize = new System.Drawing.Size(865, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.logBox);
@@ -165,6 +168,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn checkDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn tpTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource fileListElementBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn6;
     }
 }
 

@@ -2,7 +2,8 @@
 *.suo
 *.user
 *.sln.docstates
-
+*.vss
+!template.vss
 # Build results
 *.exe
 .vs/
