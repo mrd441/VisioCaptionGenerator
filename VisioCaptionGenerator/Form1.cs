@@ -24,6 +24,7 @@ namespace VisioCaptionGenerator
             public string checkDate { get; set; }
             public string tpType { get; set; }
             public string filePath { get; set; }
+            public string city { get; set; }
         }
 
         List<fileListElement> fileList;
@@ -68,13 +69,13 @@ namespace VisioCaptionGenerator
                     int tpPos = fileName.IndexOf("ТП");
                     if (tpPos >= 0)
                     {
-                        firstTmp = fileName.Substring(tpPos, fileName.Length - tpPos).Replace('_', '/').Replace(".kml", " ") + "кВа ";
+                        firstTmp = fileName.Substring(tpPos, fileName.Length - tpPos).Replace('_', '/').Replace(".kml", "");
                         string secondTmp = fileName.Substring(0, tpPos - 1);
-                        fileName = firstTmp + secondTmp;
+                        fileName = firstTmp + " кВА " + secondTmp;
                     }
                     else
                         throw new Exception("Не корректное название файла: " + fileName);
-                    caption = caption + fileName;
+                    caption = caption + fileName + " " + fileEl.city;
 
                     IVisio.Document doc = visapp.Documents.Open(templateFileName );// (short)IVisio.VisOpenSaveArgs.visAddHidden + (short)IVisio.VisOpenSaveArgs.visOpenNoWorkspace);
                     IVisio.Page page = doc.Pages[1];                    
@@ -96,6 +97,15 @@ namespace VisioCaptionGenerator
 
                     visioRectMaster = page.Shapes.get_ItemU("Sheet.507");
                     visioRectMaster.Text = fileEl.checkDate;
+
+                    int pos2 = firstTmp.LastIndexOf('-');
+                    int pos3 = firstTmp.LastIndexOf('/');
+                    string tmp2 = "?";
+                    if (pos2 != -1 & pos3 != -1 & pos3  > pos2)
+                        tmp2 = firstTmp.Substring(pos2 + 1 , pos3 - pos2 - 1);
+
+                    visioRectMaster = page.Shapes.get_ItemU("Sheet.314");
+                    visioRectMaster.Text = "РЛНД - " + tmp2;
 
                     IVisio.Master aMaster;
                     switch (fileEl.tpType)
@@ -231,16 +241,11 @@ namespace VisioCaptionGenerator
                     case 5:
                         fileEl.tpType = valStr;
                         break;
+                    case 6:
+                        fileEl.city = valStr;
+                        break;
                 }
                 fileList[e.RowIndex] = fileEl;
-            }
-        }
-
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex>=0)
-            {
-                var value = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
             }
         }
 
