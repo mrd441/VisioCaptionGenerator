@@ -56,7 +56,7 @@ namespace VisioCaptionGenerator
                 try
                 {
                     string templateFileName = Directory.GetCurrentDirectory() + "\\template.vss";
-                    string newFullfileName = fileEl.filePath + "\\result\\" + fileEl.fileName.Replace(".kml", ".vss");
+                    string newFullfileName = fileEl.filePath + "\\result\\" + fileEl.fileName.Replace(".kml", ".vsd");
                     
                     if (!File.Exists(templateFileName))
                         throw new Exception("Не найден шаблон выходного файла: " + templateFileName);
