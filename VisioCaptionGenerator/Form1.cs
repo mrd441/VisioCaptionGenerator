@@ -33,6 +33,9 @@ namespace VisioCaptionGenerator
         {
             InitializeComponent();
 
+            textBoxMake.Text = Properties.Settings.Default.makeNameList;
+            textBoxCheck.Text = Properties.Settings.Default.checkNameList;
+
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
@@ -186,6 +189,10 @@ namespace VisioCaptionGenerator
 
         void Form1_DragDrop(object sender, DragEventArgs e)
         {
+            Random rnd = new Random();
+            int makeNameCount = textBoxMake.Lines.Last() == "" ? textBoxMake.Lines.Length - 1: textBoxMake.Lines.Length;
+            int checkNameCount = textBoxCheck.Lines.Last() == "" ? textBoxCheck.Lines.Length - 1 : textBoxCheck.Lines.Length;
+            string currentDate = DateTime.Now.ToString("dd.MM.yy");
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files)
             {
@@ -201,7 +208,11 @@ namespace VisioCaptionGenerator
                     }
                     fileListElement fle = new fileListElement();
                     fle.fileName = fileName;
-                    fle.filePath = filePath;
+                    fle.filePath = filePath;                    
+                    fle.make = textBoxMake.Lines[rnd.Next(makeNameCount-1)];
+                    fle.makeDate = currentDate;
+                    fle.checkDate = currentDate;
+                    fle.check = textBoxCheck.Lines[rnd.Next(checkNameCount - 1)];
                     if (!fileList.Contains(fle))
                     {
                         fileList.Add(fle);
@@ -226,6 +237,9 @@ namespace VisioCaptionGenerator
                 string valStr = value.ToString();
                 switch (e.ColumnIndex)
                 {
+                    case 0:
+                        fileEl.fileName = valStr;
+                        break;
                     case 1:
                         fileEl.make = valStr;
                         break;
@@ -257,6 +271,9 @@ namespace VisioCaptionGenerator
                 string valStr;
                 switch (e.ColumnIndex)
                 {
+                    case 0:
+                        valStr = fileEl.fileName;
+                        break;
                     case 1:
                         valStr = fileEl.make;
                         break;
@@ -275,6 +292,18 @@ namespace VisioCaptionGenerator
                 }
                 dataGridView1.CurrentCell.Value = fileEl;
             }
-        }          
+        }
+
+        private void textBoxMake_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.makeNameList = textBoxMake.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBoxCheck_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.checkNameList = textBoxCheck.Text;
+            Properties.Settings.Default.Save();
+        }
     }
 }

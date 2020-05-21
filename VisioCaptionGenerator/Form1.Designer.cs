@@ -34,6 +34,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.fileListElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxMake = new System.Windows.Forms.TextBox();
+            this.textBoxCheck = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +61,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxCheck);
+            this.groupBox1.Controls.Add(this.textBoxMake);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -100,6 +108,42 @@
             // 
             this.fileListElementBindingSource.DataSource = typeof(VisioCaptionGenerator.Form1.fileListElement);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Составил";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 211);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Проверил";
+            // 
+            // textBoxMake
+            // 
+            this.textBoxMake.Location = new System.Drawing.Point(6, 72);
+            this.textBoxMake.Multiline = true;
+            this.textBoxMake.Name = "textBoxMake";
+            this.textBoxMake.Size = new System.Drawing.Size(88, 121);
+            this.textBoxMake.TabIndex = 5;
+            this.textBoxMake.TextChanged += new System.EventHandler(this.textBoxMake_TextChanged);
+            // 
+            // textBoxCheck
+            // 
+            this.textBoxCheck.Location = new System.Drawing.Point(6, 227);
+            this.textBoxCheck.Multiline = true;
+            this.textBoxCheck.Name = "textBoxCheck";
+            this.textBoxCheck.Size = new System.Drawing.Size(88, 121);
+            this.textBoxCheck.TabIndex = 6;
+            this.textBoxCheck.TextChanged += new System.EventHandler(this.textBoxCheck_TextChanged);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "fileName";
@@ -109,21 +153,25 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "make";
             this.dataGridViewTextBoxColumn2.HeaderText = "Составил";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "makeDate";
             this.dataGridViewTextBoxColumn3.HeaderText = "Дата";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "check";
             this.dataGridViewTextBoxColumn4.HeaderText = "Проверил";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "checkDate";
             this.dataGridViewTextBoxColumn5.HeaderText = "Дата";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
@@ -156,6 +204,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileListElementBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -175,6 +224,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn checkDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn tpTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource fileListElementBindingSource;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxCheck;
+        private System.Windows.Forms.TextBox textBoxMake;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
